@@ -64,6 +64,9 @@ _*The footprint for the second crystal (Y2) was wrong on this board but it's alr
 ## Running some tests
 
 <img align="top" src="rSTM32F103VET6.sample0.jpg" />
+
+
 The **STUno** running the Adafruit ILI9341 library over hardware SPI.
+
 
 _Video in progress..._
