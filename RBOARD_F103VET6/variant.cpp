@@ -124,6 +124,10 @@ const PinName digitalPin[] = {
 	PA_12,
 	// Duplicated pins in order to be aligned with PinMap_ADC
 	// A0 have to be greater than NUM_ANALOG_INPUTS
+	PC_0,
+	PC_1,
+	PC_2,
+	PC_3,
 	PA_0,
 	PA_1,
 	PA_2,
@@ -132,14 +136,10 @@ const PinName digitalPin[] = {
 	PA_5,
 	PA_6,
 	PA_7,
-	PB_0,
-	PB_1,
-	PC_0,
-	PC_1,
-	PC_2,
-	PC_3,
 	PC_4,
 	PC_5,
+	PB_0,
+	PB_1,
 };
 
 #ifdef __cplusplus
