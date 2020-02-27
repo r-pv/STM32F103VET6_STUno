@@ -18,33 +18,38 @@ Pinout:
 
 ## Install
 
-_pending..._
+- This requires the [STM32 core for arduino](https://github.com/stm32duino/Arduino_Core_STM32/), the ST original.
+- I used this [guide to add the board](https://github.com/stm32duino/wiki/wiki/Add-a-new-variant-(board)), you can check it or continue with my suggestions to install the new board.
+- Copy the **"RBOARD_F103VET6"** folder to the Arduino **"variants"** folder, in win7 is located at: **c:\Users\\<USERNAME\>\AppData\Local\Arduino15\packages\STM32\hardware\stm32\1.8.0\variants**
+- Edit the **"boards.txt"** file, in win7 is located at a lever up than the "variants" folder, search for the **Generic F1** board line and add the lines to leave it as I show you next:
+
+```
+GenF1.menu.pnum.Generic_F103RET6=Generic F103RET6 (Blue Button)
+GenF1.menu.pnum.Generic_F103RET6.upload.maximum_size=524288
+GenF1.menu.pnum.Generic_F103RET6.upload.maximum_data_size=65536
+GenF1.menu.pnum.Generic_F103RET6.build.board=GENERIC_F103RET6
+GenF1.menu.pnum.Generic_F103RET6.build.product_line=STM32F103xE
+GenF1.menu.pnum.Generic_F103RET6.build.variant=Generic_F103Rx
+
+
+# Generic STM32F103VET6 STUno
+GenF1.menu.pnum.RBOARD_F103VET6=STM32F103VET6 STUno
+GenF1.menu.pnum.RBOARD_F103VET6.upload.maximum_size=524288
+GenF1.menu.pnum.RBOARD_F103VET6.upload.maximum_data_size=65536
+GenF1.menu.pnum.RBOARD_F103VET6.build.board=RBOARD_F103VET6
+GenF1.menu.pnum.RBOARD_F103VET6.build.product_line=STM32F103xE
+GenF1.menu.pnum.RBOARD_F103VET6.build.variant=RBOARD_F103VET6
+```
+(add after the _"# Generic STM32F103Rx boards (Blue button)"_ section).
+
+That's all.
+
+So on the arduino IDE, on the **boards** menu pick the option _"Generic STM32F1 series"_ and the **board part number:** suboption pick the _"STM32F103VET6 STUno"_ option.
 
 
 ## Installation Bug
 
-There is a bug on the core 1.6.1 (and probably olders), which didn't let you compile anything, even the blink sketch, this is bug that ST has already acknowledge and fixed on their 1.7 version (which at the time of writing this documentation isn't yet released). So if you're using the 1.7 core or newer you can skip this part, if you are using 1.6.1 you do need to manually fix the problem (thanks to **pkourany** for publish this [bug and its solution](https://github.com/stm32duino/Arduino_Core_STM32/issues/585) ).
-
-So, you need to change the function _void TIM8_IRQHandler(void)_ on the file **timer.c** (on win7 located at: C:\Users\<USER_NAME>\AppData\Local\Arduino15\packages\STM32\hardware\stm32\1.6.1\cores\arduino\stm32\ ,line around 1321) and leave it as follow:
-
-```
-void TIM8_IRQHandler(void)
-{
-  if (timer_handles[TIMER8_INDEX] != NULL) {
-    HAL_TIM_IRQHandler(timer_handles[TIMER8_INDEX]);
-  }
-
-#if defined(STM32F1xx) || defined(STM32F2xx) ||defined(STM32F4xx) || defined(STM32F7xx)
-#if defined(TIMER13_BASE)
-  if (timer_handles[TIMER13_INDEX] != NULL) {
-    HAL_TIM_IRQHandler(timer_handles[TIMER13_INDEX]);
-  }
-#endif
-#endif
-}
-```
-
-That's it, the arduino ide should compile your sketches fine.
+So there was a bug on older versions of the core <1.7 so you should use at least the 1.7 Core version, at the moment to write this update to the documentation the ST Core last version relase it's 1.8 so it's highly recomended that you should use this version (or newer if available).
 
 
 
