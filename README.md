@@ -18,7 +18,8 @@ Pinout:
 
 ## Install
 
-**Update:** Since STCore version **1.9.0** most of the F103XXX boards (including this) are already supported, so there is no need to install anything.
+
+**Update:** Since STCore version **1.9.0** most of the F103XXXX boards (including this) are already supported, so there is no need to install anything.
 
 
 - This requires the [STM32 core for arduino](https://github.com/stm32duino/Arduino_Core_STM32/), the ST original.
@@ -48,12 +49,6 @@ GenF1.menu.pnum.RBOARD_F103VET6.build.variant=RBOARD_F103VET6
 That's all.
 
 So on the arduino IDE, on the **boards** menu pick the option _"Generic STM32F1 series"_ and the **board part number:** suboption pick the _"STM32F103VET6 STUno"_ option.
-
-
-## Installation Bug
-
-So there was a bug on older versions of the core <1.7 so you should use at least the 1.7 Core version, at the moment to write this update to the documentation the ST Core last version relase it's 1.8 so it's highly recomended that you should use this version (or newer if available).
-
 
 
 ## The real board
