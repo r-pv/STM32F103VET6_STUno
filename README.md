@@ -18,6 +18,9 @@ Pinout:
 
 ## Install
 
+**Update:** Since STCore version **1.9.0** most of the F103XXX boards (including this) are already supported, so there is no need to install anything.
+
+
 - This requires the [STM32 core for arduino](https://github.com/stm32duino/Arduino_Core_STM32/), the ST original.
 - I used this [guide to add the board](https://github.com/stm32duino/wiki/wiki/Add-a-new-variant-(board)), you can check it or continue with my suggestions to install the new board.
 - Copy the **"RBOARD_F103VET6"** folder to the Arduino **"variants"** folder, in win7 is located at: **c:\Users\\<USERNAME\>\AppData\Local\Arduino15\packages\STM32\hardware\stm32\1.8.0\variants**
